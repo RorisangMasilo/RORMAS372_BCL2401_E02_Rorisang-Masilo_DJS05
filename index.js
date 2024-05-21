@@ -50,3 +50,10 @@ function updateCounter() {
 }
 store.subscribe(updateCounter);
 
+incrementButton.addEventListener("click", () => {
+    store.dispatch({ type: "INCREMENT" });
+});
+decrementButton.addEventListener("click", () => {
+    store.dispatch({ type: "DECREMENT" });
+});
+updateCounter();
