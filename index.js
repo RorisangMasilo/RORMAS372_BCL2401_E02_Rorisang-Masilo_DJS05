@@ -45,5 +45,8 @@ function createStore(initialState) {
 const store = createStore(initialState);
 
 function updateCounter() {
-    const state
+    const state = store.getState();
+    stateUI.textContent = state.count;
 }
+store.subscribe(updateCounter);
+
