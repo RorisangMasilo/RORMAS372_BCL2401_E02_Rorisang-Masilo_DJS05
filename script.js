@@ -1,50 +1,39 @@
-import { createStore } from "redux";
-
-let store = createStore(() => 0);
-console.log(store.getState());
-
-// UI Elements
 if (typeof document !== "undefined") {
+  // UI Elements
   let stateUI = document.getElementById("currentState");
   let incrementButton = document.getElementById("incrementButton");
   let decrementButton = document.getElementById("decrementButton");
+}
+// Initial state of tally app
+const initialState = { count: 0 };
 
-  // Function to create store
-  function createStore(initialState) {
-    let state = initialState;
-    let listeners = [];
-    let store = Redux.createStore(0); // 0
+// Increment function
+function increment(state) {
+  return { count: state.count + 1 };
+}
 
-    // Initial state of tally app
-    const initialState = { count: 0 };
+// Decrement function
+function decrement(state) {
+  return { count: state.count - 1 };
+}
 
-    // Increment function
-    function increment(state) {
-      return { count: state.count + 1 };
-    }
-
-    // decrement function
-    function decrement(state) {
-      return { count: state.count - 1 };
-    }
-  }
-
-  // Define the reducer function
-  function counterReducer(state = initialState, action) {}
-
+// Function to create store
+function createStore(initialState) {
+  let state = initialState;
+  let listeners = [];
   // Methods to dispatch an action to update the state
   return {
     getState: () => state,
     dispatch: (action) => {
       switch (action.type) {
         case "INCREMENT":
-          return state + 1; // 1
-        // break;
+          state = increment(state);
+          break;
         case "DECREMENT":
-          return state - 1; //
-          break; // added break to avoid fall-through
+          state = decrement(state);
+          break; // Added break to avoid fall-through
         default:
-          return state;
+          break;
       }
       // Notify all listeners about the state change
       listeners.forEach((listener) => listener());
