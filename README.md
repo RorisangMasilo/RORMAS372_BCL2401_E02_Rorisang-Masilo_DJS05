@@ -3,14 +3,17 @@
 In this challenge, you will venture into the realm of state management by constructing a Redux-inspired store to manage the state of a simple Tally App. Your primary goal is to manage the app's state changes efficiently, focusing on core functionalities like incrementing, decrementing, and resetting a counter. Instead of rendering changes on the UI, you'll subscribe to state updates and log them to the console, highlighting the power of state management in applications.
 
 ## Objective
+
 Create a minimalistic, Redux-inspired store to manage and log the state of a counting Tally App. Your implementation will not involve UI rendering; instead, it will use console logs to demonstrate state management effectively.
 
 Observer Pattern resource from Refactoring Guru: https://refactoring.guru/design-patterns/observer
 
 ## User Stories (Gherkin Syntax)
+
 Your challenge will encompass the following scenarios, tested through your store's implementation:
 
 ### SCENARIO 1: Initial State Verification
+
 ```
 GIVEN no interactions have been performed yet
 WHEN the “getState” method is run
@@ -20,6 +23,7 @@ THEN the state should show a count of 0
 ```
 
 ### SCENARIO 2: Incrementing the Counter
+
 ```
 GIVEN no interactions have been performed yet
 WHEN an “ADD” action is dispatched
@@ -29,6 +33,7 @@ THEN the state should show a count of 2
 ```
 
 ### SCENARIO 3: Decrementing the Counter
+
 ```
 GIVEN the current count in the state is 2
 WHEN a “SUBTRACT” action is dispatched
@@ -37,6 +42,7 @@ THEN the state should display a count of 1
 ```
 
 ### SCENARIO 4: Resetting the Counter
+
 ```
 GIVEN the current count in the state is 1
 WHEN a “RESET” action is dispatched
@@ -45,6 +51,7 @@ THEN the state should display a count of 0
 ```
 
 ## Requirements
+
 - **Implement a Global Store**: Create a Redux-inspired store that holds the state of the tally counter. The store should have the ability to dispatch actions and subscribe to state changes.
 - **State Management Functions**:
   - **getState**: Returns the current state.
@@ -54,7 +61,9 @@ THEN the state should display a count of 0
 - **Functional Programming Principles**: Draw upon functional programming concepts as illustrated in the reference videos. While Redux is the inspiration, you're encouraged to apply these principles creatively in your implementation.
 
 ## Submission Guidelines
+
 Your submission should consist of a JavaScript file(s) that encapsulate your Redux-inspired store and the logic for dispatching actions and subscribing to changes. Include a README.md file explaining:
+
 - How to run your code.
 - A brief overview of your approach.
 - Any challenges you faced and how you overcame them.
@@ -62,8 +71,38 @@ Your submission should consist of a JavaScript file(s) that encapsulate your Red
 Ensure your code is well-commented and adheres to best practices for readability and maintainability.
 
 ## Evaluation Criteria
+
 - **Correctness**: Your implementation should correctly handle the scenarios as outlined in the user stories.
 - **Code Quality**: Use of functional programming principles, clear naming conventions, and code organization.
 - **Documentation**: Clarity of your approach and reflections in the README.md.
 
 This challenge is an excellent opportunity to demonstrate your understanding of state management concepts and functional programming principles. Good luck!
+
+### Personal Reflections
+
+#### Objective
+
+I aimed to build a simple yet functional state management system inspired by Redux principles. The primary goal was to manage state changes efficiently and demonstrate these changes via console logs.
+
+#### Challenges and Solutions
+
+**Understanding Redux Principles**:
+
+Initially, it was challenging to fully grasp Redux concepts. I focused on breaking down the principles into smaller parts and applied them one by one.
+
+**Implementing the Observer Pattern**:
+
+Ensuring that subscribers were correctly notified of state changes required careful handling of the subscription and unsubscription processes.
+
+**Functional Programming Principles**:
+
+Applying functional programming concepts, such as immutability and pure functions, was critical. This was managed by ensuring that the reducer function returned new state objects rather than mutating the existing state.
+
+#### Learnings
+
+This project reinforced the importance of state management in applications. By focusing on a non-UI implementation, I could better understand how state flows through an application and how actions drive changes in state.
+
+#### Future Improvements
+
+**Middleware Implementation**: Adding middleware to handle asynchronous actions or logging.
+**Enhanced Testing**: Incorporating unit tests to verify the correctness of the reducer and store functionalities.
